@@ -5,6 +5,8 @@ import java.time.Instant;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.tweteroo.api.dtos.UserDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,5 +39,10 @@ public class UserModel {
 
     @UpdateTimestamp
     private Instant lastUpdateOn;
+
+    public UserModel(UserDTO dto){
+        this.avatar = dto.getAvatar();
+        this.username = dto.getUsername();
+    }
 
 }
